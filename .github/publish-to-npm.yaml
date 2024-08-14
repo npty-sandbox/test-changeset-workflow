@@ -1,0 +1,55 @@
+name: Publish to NPM
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+env:
+  SUI_VERSION: mainnet-v1.25.3
+
+jobs:
+  publish:
+    name: Publish to NPM
+    # if: >
+    #   github.event.pull_request.merged == true &&
+    #   github.event.pull_request.user.login == 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      # - name: Check for changeset files
+      #   id: check-changeset-files
+      #   run: |
+      #     if ls .changeset/*.md | grep '\.changeset\/[a-z-]\+\.md$'; then
+      #       echo "has_changeset_files=true" >> "$GITHUB_OUTPUT"
+      #     else
+      #       echo "has_changeset_files=false" >> "$GITHUB_OUTPUT"
+      #     fi
+
+      - name: Setup Sui CLI and install dependencies
+        uses: ./.github/actions/install
+        with:
+          SUI_VERSION: ${{ env.SUI_VERSION }}
+
+      - name: Publish to NPM
+        run: |
+          npm publish --no-git-checks --tag snapshot --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # TODO: GH release is disabled for now because it's not working
+      - name: Create GitHub Release
+        if: steps.check-changeset-files.outputs.has_changeset_files == 'false'
+        uses: changesets/action@v1
+        with:
+
+          createGithubReleases: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
