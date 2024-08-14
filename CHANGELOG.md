@@ -1,5 +1,11 @@
 # test-changeset-workflow
 
+## 1.0.8
+
+### Patch Changes
+
+- 3c5f5e7: chore: add npm ci
+
 ## 1.0.7
 
 ### Patch Changes
