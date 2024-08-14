@@ -30,8 +30,12 @@ jobs:
             echo "has_changeset_files=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: install dependencies
-        run: npm ci
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+            node-version: 18
+            cache: 'npm'
+            registry-url: 'https://registry.npmjs.org'
 
       - name: Create GitHub Release
         uses: changesets/action@v1
