@@ -11,6 +11,9 @@
   },
   "author": "",
   "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@changesets/cli": "^2.27.7"
   }
