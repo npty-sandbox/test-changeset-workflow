@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- ddcfadc: update to 1.0.6
+- ddcfadc: update to 1.0.6 (manually edited by npty)
 
 ## 1.0.5
 
