@@ -1,5 +1,11 @@
 # test-changeset-workflow
 
+## 1.0.9
+
+### Patch Changes
+
+- 24cbcde: test 1.0.8
+
 ## 1.0.8
 
 ### Patch Changes
