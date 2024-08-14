@@ -1,5 +1,11 @@
 # test-changeset-workflow
 
+## 1.0.12
+
+### Patch Changes
+
+- 14321b2: test add changeset file
+
 ## 1.0.11
 
 ### Patch Changes
