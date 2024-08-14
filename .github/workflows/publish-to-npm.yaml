@@ -10,28 +10,25 @@ on:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
-env:
-  SUI_VERSION: mainnet-v1.25.3
-
 jobs:
   publish:
     name: Publish to NPM
-    # if: >
-    #   github.event.pull_request.merged == true &&
-    #   github.event.pull_request.user.login == 'github-actions[bot]'
+    if: >
+      github.event.pull_request.merged == true &&
+      github.event.pull_request.user.login == 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      # - name: Check for changeset files
-      #   id: check-changeset-files
-      #   run: |
-      #     if ls .changeset/*.md | grep '\.changeset\/[a-z-]\+\.md$'; then
-      #       echo "has_changeset_files=true" >> "$GITHUB_OUTPUT"
-      #     else
-      #       echo "has_changeset_files=false" >> "$GITHUB_OUTPUT"
-      #     fi
+      - name: Check for changeset files
+        id: check-changeset-files
+        run: |
+          if ls .changeset/*.md | grep '\.changeset\/[a-z-]\+\.md$'; then
+            echo "has_changeset_files=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changeset_files=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: install dependencies
         run: npm ci
@@ -43,5 +40,5 @@ jobs:
           createGithubReleases: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
