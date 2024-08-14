@@ -1,5 +1,13 @@
 # test-changeset-workflow
 
+## 1.0.7
+
+### Patch Changes
+
+- 8a37816: update setup node npm version
+- 4d7e122: chore: test changeset/cli 2.27.6
+- f422c50: chore: update test.yaml
+
 ## 1.0.6
 
 ### Patch Changes
