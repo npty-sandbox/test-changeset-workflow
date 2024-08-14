@@ -1,5 +1,11 @@
 # test-changeset-workflow
 
+## 1.0.11
+
+### Patch Changes
+
+- e189c8c: chore: add readme
+
 ## 1.0.10
 
 ### Patch Changes
