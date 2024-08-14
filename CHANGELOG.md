@@ -1,5 +1,11 @@
 # test-changeset-workflow
 
+## 1.0.5
+
+### Patch Changes
+
+- 15166d2: Update to 1.0.5
+
 ## 1.0.4
 
 ### Patch Changes
