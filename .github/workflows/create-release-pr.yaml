@@ -2,6 +2,9 @@ name: Create Release Pull Request
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
