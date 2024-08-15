@@ -1,5 +1,12 @@
 # test-changeset-workflow
 
+## 1.0.13
+
+### Patch Changes
+
+- 4dc7fe4: 1.0.13
+- 02dd57e: 1.0.13
+
 ## 1.0.12
 
 ### Patch Changes
