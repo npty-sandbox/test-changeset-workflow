@@ -1,5 +1,11 @@
 # test-changeset-workflow
 
+## 1.0.15
+
+### Patch Changes
+
+- 17bc73f: use custom token
+
 ## 1.0.14
 
 ### Patch Changes
