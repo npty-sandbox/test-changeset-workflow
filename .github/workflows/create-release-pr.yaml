@@ -15,8 +15,8 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          token: ${{ secrets.GH_TOKEN }}
 
       - name: Install dependencies
         shell: bash
